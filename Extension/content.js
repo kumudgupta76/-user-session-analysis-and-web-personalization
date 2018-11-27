@@ -167,6 +167,14 @@ function createBarInterface(linkArr) {
 	name = document.createTextNode("Kumud Gupta");
 	ln2.appendChild(name);
 	listn.appendChild(ln2);
+	var ln3 = document.createElement("LI");
+	name = document.createTextNode("Raghav Arora");
+	ln3.appendChild(name);
+	listn.appendChild(ln3);
+	var ln4 = document.createElement("LI");
+	name = document.createTextNode("Mudit Banga");
+	ln4.appendChild(name);
+	listn.appendChild(ln4);
 	note.appendChild(listn);
 	note.style.position = 'absolute';
 	note.style.right = '0px';
