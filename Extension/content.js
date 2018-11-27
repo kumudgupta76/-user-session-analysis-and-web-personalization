@@ -10,10 +10,9 @@ var auth = false;
 
 var mevent=0;
 var session = {
+	'timestamp' : Date.now(),
 	'userid' : null,
 	'hostname' : window.location.hostname,
-	'port' : window.location.port,
-	'protocol' : window.location.protocol,
 	'path' : window.location.pathname,
 	'total_time' : 0,
 	'actual_time' : 0

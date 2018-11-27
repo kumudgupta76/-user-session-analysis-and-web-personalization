@@ -2,8 +2,6 @@ var app = require('express')();
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var spawn = require("child_process").spawn;
-var cookieParser = require('cookie-parser');
-//var converter = require('json-2-csv');
 var json2csv = require('json2csv').parse;
 var newLine= "\r\n";
 
@@ -15,18 +13,10 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-
-app.get('/',function(req,res){
-	var user = req.cookies.user;	
-    res.render('C:/Users/dell/Desktop/home.html',{
-		currentUser: user
-	});
-});
 
 app.post('/postdata', function(req, res){
 	var clist = req.body;
-	var fields = ['userid', 'hostname', 'port', 'protocol', 'path', 'total_time', 'actual_time'];
+	var fields = ['timestamp', 'userid', 'hostname', 'path', 'total_time', 'actual_time'];
 	const opts = { fields };
 	
 
@@ -59,4 +49,16 @@ app.post('/postdata', function(req, res){
 	});
 });
 
+app.get('/getchart', function(req, res){
+	var process = spawn('python',["./chart.py"]);
+	process.stdout.on('data', function(data) { 
+        res.send(data.toString());
+    });
+});
 
+app.get('/getlinks', function(req, res){
+	var process = spawn('python',["./recommendation.py"]);
+	process.stdout.on('data', function(data) { 
+        res.send(data.toString());
+    });
+});
