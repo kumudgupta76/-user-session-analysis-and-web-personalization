@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/postdata', function(req, res){
 	var clist = req.body;
-	var fields = ['timestamp', 'userid', 'hostname', 'path', 'total_time', 'actual_time'];
+	var fields = ['timestamp', 'userid', 'hostname', 'path', 'query', 'title', 'total_time', 'actual_time'];
 	const opts = { fields };
 	
 
@@ -57,8 +57,9 @@ app.get('/getchart', function(req, res){
 });
 
 app.get('/getlinks', function(req, res){
-	var process = spawn('python',["./recommendation.py"]);
+	var process = spawn('python',["./recommendation.py",req.query.userid,req.query.hostname]);
 	process.stdout.on('data', function(data) { 
-        res.send(data.toString());
+		console.log(data.toString());
+		//res.send(data.toString());
     });
 });

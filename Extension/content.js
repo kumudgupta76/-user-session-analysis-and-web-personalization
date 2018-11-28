@@ -14,6 +14,8 @@ var session = {
 	'userid' : null,
 	'hostname' : window.location.hostname,
 	'path' : window.location.pathname,
+	'query' : window.location.search,
+	'title' : document.title,
 	'total_time' : 0,
 	'actual_time' : 0
 };
@@ -23,14 +25,14 @@ chrome.storage.sync.get('userid', function(items) {
 	session.userid = userid;
 });
 var interval = window.setInterval(function () {
-	session.total_time += 60;
+	session.total_time += 1;
 	if (mevent){
-		session.actual_time += 60;
+		session.actual_time += 1;
 		mevent=0;
 	}
 	console.log(session.userid);
 	console.log(session.actual_time);
-}, 60000);
+}, 1000);
 document.onmousemove = function(){
 	mevent=1;
 };
@@ -122,95 +124,57 @@ function callback(e) {
 }
 
 function recommendationBar() {
-	var pages = JSON.parse(localStorage.pages);
-	var adjMatrix = JSON.parse(localStorage.adjMatrix);
-	console.log(pages);
-	console.log(adjMatrix);
-	var maxsColumn=0, maxsRow=0, col=0, row=0;
-	for (var i=0; i<pages.length; i++){
-		var sum1=0, sum2=0;
-		for (var j=0; j<pages.length; j++){
-			sum1 += adjMatrix[j][i];
-			sum2 += adjMatrix[i][j];
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		    var arr = JSON.parse(this.responseText);
+		    createBarInterface(arr);
 		}
-		if (sum1 >= maxsColumn){
-			maxsColumn = sum1;
-			col = i;
-		}
-		if (sum2 >= maxsRow){
-			maxsRow = sum2;
-			row = i;
-		}
-	}
-	var max = 0;
-	var index1 = find(pages, window.location.href);
-	for (var l=1; l<pages.length; l++){
-		if (adjMatrix[index1][l] >= adjMatrix[index1][max]) max = l;
-	}
-	var arr = [pages[col], pages[max], pages[row]];
-	createBarInterface(arr);
+	};
+	chrome.storage.sync.get('userid',function(items){
+		var userid = items.userid;
+		var hostname = window.location.hostname;
+		xmlhttp.open("GET","http://localhost:3000/getlinks?userid="+userid+"&hostname="+hostname,true);
+		xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+		xmlhttp.send();
+	});
 }
 
 function createBarInterface(linkArr) {
-	var link, a, href, type;
 	var myDiv = document.createElement("DIV");
-	console.log(myDiv);
-	var note = document.createElement("DIV");
-	var h = document.createTextNode("Project By:");
-	note.appendChild(h);
-	var listn = document.createElement("UL");
-	var ln = document.createElement("LI");
-	var name = document.createTextNode("Parth Pathak");
-	ln.appendChild(name);
-	listn.appendChild(ln);
-	var ln2 = document.createElement("LI");
-	name = document.createTextNode("Kumud Gupta");
-	ln2.appendChild(name);
-	listn.appendChild(ln2);
-	var ln3 = document.createElement("LI");
-	name = document.createTextNode("Raghav Arora");
-	ln3.appendChild(name);
-	listn.appendChild(ln3);
-	var ln4 = document.createElement("LI");
-	name = document.createTextNode("Mudit Banga");
-	ln4.appendChild(name);
-	listn.appendChild(ln4);
-	note.appendChild(listn);
-	note.style.position = 'absolute';
-	note.style.right = '0px';
-	note.style.width = '160px';
-	note.style.textAlign = 'left';
-	myDiv.appendChild(note);
-		var para = document.createElement("P");
-			var t = document.createTextNode("Recommended links");
-			para.appendChild(t);
-		myDiv.appendChild(para);
 			var list = document.createElement("UL");
-			type = document.createAttribute("type");
+			var type = document.createAttribute("type");
 			type.value = 'none';
 			list.setAttributeNode(type);
+			var link, a, href, classA;
 			for (var i=0; i<linkArr.length; i++){
 				var l1 = document.createElement("LI");
 				a = document.createElement("A");
 				href = document.createAttribute("href");
 				href.value = linkArr[i].url;
 				a.setAttributeNode(href);
+				classA = document.createAttribute("CLASS");
+				classA.value = 'usawpxxx';
+				a.setAttributeNode(classA);
 				link = document.createTextNode(linkArr[i].title);
 				a.appendChild(link);
+				a.style.padding = '50px';
+				a.style.display = 'block';
+				a.style.width = (100/linkArr.length)+'%';
+				a.style.backgroundColor = 'rgba(0,20,20,0.6)';
 				l1.appendChild(a);
 				l1.style.cssFloat = 'left';
-				l1.style.padding = '20px';
 				list.appendChild(l1);
 			}
 	myDiv.appendChild(list);
 	myDiv.style.position = 'fixed';
 	myDiv.style.bottom = '0px';
 	myDiv.style.width = '100%';
-	myDiv.style.background = 'linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,1))';
-	myDiv.style.color = 'white';
-	myDiv.style.textAlign = 'center';
-	myDiv.style.zIndex = '99';
+	myDiv.style.zIndex = '99 !important';
 	document.body.appendChild(myDiv);
+	var style = document.createElement("STYLE");
+	var hover = '.usawpxxx:hover{background-color:rgb(0,20,20)}';
+	style.appendChild(document.createTextNode(hover));
   }
 
 function removeSpaces(node) {

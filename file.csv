@@ -1,0 +1,5 @@
+timestamp,userid,hostname,path,query,title,total_time,actual_time
+1543382045904,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.hackerrank.com","/","","HackerRank",0,0
+1543382146761,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.hackerrank.com","/dashboard","","Dashboard | HackerRank",44,22
+1543382197781,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.hackerrank.com","/inbox/thread/249696","","Programming Problems and Competitions :: HackerRank",26,14
+1543382238429,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","gitlab.com","/","","Projects · Dashboard · GitLab",4,3
