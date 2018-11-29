@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/postdata', function(req, res){
 	var clist = req.body;
-	var fields = ['timestamp', 'userid', 'hostname', 'path', 'query', 'title', 'total_time', 'actual_time'];
+	var fields = ['timestamp', 'userid', 'hostname', 'protocol', 'path', 'query', 'title', 'total_time', 'actual_time'];
 	const opts = { fields };
 	
 
@@ -50,8 +50,8 @@ app.post('/postdata', function(req, res){
 });
 
 app.get('/getchart', function(req, res){
-	var process = spawn('python',["./chart.py"]);
-	process.stdout.on('data', function(data) { 
+	var process = spawn('python',["./chart.py",req.query.userid]);
+	process.stdout.on('data', function(data) {
         res.send(data.toString());
     });
 });
@@ -60,6 +60,14 @@ app.get('/getlinks', function(req, res){
 	var process = spawn('python',["./recommendation.py",req.query.userid,req.query.hostname]);
 	process.stdout.on('data', function(data) { 
 		console.log(data.toString());
-		//res.send(data.toString());
+		str = [{title:'First Link',url:'#'},{title:'Second Link',url:'#'},{title:'Third Link',url:'#'}];
+		res.send(JSON.stringify(str));
     });
+});
+
+app.get('/user-session-analysis', function(req,res){
+	var userid = req.query.userid;
+	res.render('analysis.html',{
+		userid : userid
+	});
 });

@@ -13,6 +13,7 @@ var session = {
 	'timestamp' : Date.now(),
 	'userid' : null,
 	'hostname' : window.location.hostname,
+	'port' : window.location.port,
 	'path' : window.location.pathname,
 	'query' : window.location.search,
 	'title' : document.title,
@@ -158,10 +159,9 @@ function createBarInterface(linkArr) {
 				a.setAttributeNode(classA);
 				link = document.createTextNode(linkArr[i].title);
 				a.appendChild(link);
-				a.style.padding = '50px';
+				a.style.padding = '20px';
 				a.style.display = 'block';
-				a.style.width = (100/linkArr.length)+'%';
-				a.style.backgroundColor = 'rgba(0,20,20,0.6)';
+				a.style.maxWidth = '25%';
 				l1.appendChild(a);
 				l1.style.cssFloat = 'left';
 				list.appendChild(l1);
@@ -171,11 +171,23 @@ function createBarInterface(linkArr) {
 	myDiv.style.bottom = '0px';
 	myDiv.style.width = '100%';
 	myDiv.style.zIndex = '99 !important';
+	myDiv.style.backgroundColor = 'rgba(0,20,20,0.6)';
+	var arrow = document.createElement("DIV");
+	arrow.appendChild(document.createTextNode('&times;'));
+	arrow.style.display = 'block';
+	arrow.style.position  = 'absolute';
+	arrow.style.width = '50px';
+	arrow.style.height = '50px';
+	arrow.style.borderRadius = '50%';
+	arrow.style.backgroundColor = 'rgba(0,20,20,0.6)';
+	arrow.style.top = '-25px';
+	arrow.style.right = '20px';
+	arrow.style.fontSize = '36px';
 	document.body.appendChild(myDiv);
 	var style = document.createElement("STYLE");
 	var hover = '.usawpxxx:hover{background-color:rgb(0,20,20)}';
 	style.appendChild(document.createTextNode(hover));
-  }
+}
 
 function removeSpaces(node) {
 	var nodelist = node.childNodes;
