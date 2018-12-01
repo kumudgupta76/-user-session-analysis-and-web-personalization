@@ -21,16 +21,13 @@ chrome.storage.sync.get('userid', function(items) {
       });
   }
 });
-    
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-      console.log("The color is green.");
+
+});
+
+chrome.browserAction.onClicked.addListener(function() {
+  chrome.storage.sync.get('userid',function(items){
+    chrome.tabs.create({
+      'url':'localhost:3000/user-session-analysis?userid=' + items.userid
     });
-  
-    chrome.browserAction.onClicked.addListener(function() {
-      chrome.storage.sync.get('userid',function(items){
-        chrome.tabs.create({
-          'url':'localhost:3000/user-session-analysis?userid=' + items.userid
-        });
-      });
-    });
+  });
 });

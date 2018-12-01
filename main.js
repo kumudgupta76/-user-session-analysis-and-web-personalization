@@ -1,8 +1,9 @@
-var app = require('express')();
+var express = require('express');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var spawn = require("child_process").spawn;
 var json2csv = require('json2csv').parse;
+var app = express();
 var newLine= "\r\n";
 
 app.listen(3000, function() {
@@ -13,6 +14,7 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/static'));
 
 app.post('/postdata', function(req, res){
 	var clist = req.body;

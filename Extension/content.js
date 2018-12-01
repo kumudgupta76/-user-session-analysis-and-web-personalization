@@ -31,8 +31,8 @@ var interval = window.setInterval(function () {
 		session.actual_time += 1;
 		mevent=0;
 	}
-	console.log(session.userid);
-	console.log(session.actual_time);
+	// console.log(session.userid);
+	// console.log(session.actual_time);
 }, 1000);
 document.onmousemove = function(){
 	mevent=1;
@@ -45,91 +45,13 @@ window.onbeforeunload = function(){
 	xmlhttp.send('details='+JSON.stringify(session));
 	return 'Are you sure you want to leave?';
 };
-// window.onbeforeunload = null;
-
-if (typeof(Storage) !== "undefined") {
-	var obj = {
-		title: document.title,
-		url: window.location.href
-	};
-	if (!localStorage.pages || !localStorage.adjMatrix){
-		initializeGraph(obj);
-	} else {
-		var pages = JSON.parse(localStorage.pages);
-		var adjMatrix = JSON.parse(localStorage.adjMatrix);
-		var index1 = find(pages, window.location.href);
-		if (index1 === -1){
-			addNode(pages, adjMatrix, obj);
-		}
-		localStorage.pages = JSON.stringify(pages);
-		localStorage.adjMatrix = JSON.stringify(adjMatrix);
-	}
-	recommendationBar();
-	if (document.addEventListener)
-		document.addEventListener('click', callback, false);
-  	else
-		document.attachEvent('onclick', callback);
-} else {
-	alert('No Web Storage Support.\nPersonalisation may not work.');
-}
-
-function find(arr, link) {
-	var flag = -1;
-	for (var i=0; i<arr.length; i++){
-		if (arr[i].url === link) {
-			flag = i;
-			break;
-		}
-	}
-	return flag;
-}
-
-function initializeGraph(obj) {
-	var pages = [];
-	pages.push(obj);
-	var adjMatrix = [[0]];
-	localStorage.pages = JSON.stringify(pages);
-	localStorage.adjMatrix = JSON.stringify(adjMatrix);
-}
-
-function addNode(pages, adjMatrix, obj) {
-	var newArr = [];
-	for(var i=0; i<pages.length; i++){
-		adjMatrix[i].push(0);
-		newArr.push(0);
-	}
-	newArr.push(0);
-	adjMatrix.push(newArr);
-	pages.push(obj);
-}
-
-function callback(e) {
-	if (e.target.tagName === 'A') {
-		var pages = JSON.parse(localStorage.pages);
-		var adjMatrix = JSON.parse(localStorage.adjMatrix);
-		var index = find(pages, e.target.href);
-		if (index === -1){
-			var obj = {
-				title: e.target.innerText,
-				url: e.target.href
-			};
-			addNode(pages, adjMatrix, obj);
-			index = find(pages, e.target.href);
-		}
-		var index1 = find(pages, window.location.href);
-		adjMatrix[index1][index] += 1;
-		localStorage.pages = JSON.stringify(pages);
-		localStorage.adjMatrix = JSON.stringify(adjMatrix);
-	}
-	else return;
-}
-
 function recommendationBar() {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 		    var arr = JSON.parse(this.responseText);
-		    createBarInterface(arr);
+			//createBarInterface(arr);
+			//console.log(arr);
 		}
 	};
 	chrome.storage.sync.get('userid',function(items){
@@ -141,115 +63,156 @@ function recommendationBar() {
 	});
 }
 
-function createBarInterface(linkArr) {
-	var myDiv = document.createElement("DIV");
-			var list = document.createElement("UL");
-			var type = document.createAttribute("type");
-			type.value = 'none';
-			list.setAttributeNode(type);
-			var link, a, href, classA;
-			for (var i=0; i<linkArr.length; i++){
-				var l1 = document.createElement("LI");
-				a = document.createElement("A");
-				href = document.createAttribute("href");
-				href.value = linkArr[i].url;
-				a.setAttributeNode(href);
-				classA = document.createAttribute("CLASS");
-				classA.value = 'usawpxxx';
-				a.setAttributeNode(classA);
-				link = document.createTextNode(linkArr[i].title);
-				a.appendChild(link);
-				a.style.padding = '20px';
-				a.style.display = 'block';
-				a.style.maxWidth = '25%';
-				l1.appendChild(a);
-				l1.style.cssFloat = 'left';
-				list.appendChild(l1);
-			}
-	myDiv.appendChild(list);
-	myDiv.style.position = 'fixed';
-	myDiv.style.bottom = '0px';
-	myDiv.style.width = '100%';
-	myDiv.style.zIndex = '99 !important';
-	myDiv.style.backgroundColor = 'rgba(0,20,20,0.6)';
-	var arrow = document.createElement("DIV");
-	arrow.appendChild(document.createTextNode('&times;'));
-	arrow.style.display = 'block';
-	arrow.style.position  = 'absolute';
-	arrow.style.width = '50px';
-	arrow.style.height = '50px';
-	arrow.style.borderRadius = '50%';
-	arrow.style.backgroundColor = 'rgba(0,20,20,0.6)';
-	arrow.style.top = '-25px';
-	arrow.style.right = '20px';
-	arrow.style.fontSize = '36px';
-	document.body.appendChild(myDiv);
-	var style = document.createElement("STYLE");
-	var hover = '.usawpxxx:hover{background-color:rgb(0,20,20)}';
-	style.appendChild(document.createTextNode(hover));
-}
-
-function removeSpaces(node) {
-	var nodelist = node.childNodes;
-	if (node.nodeValue !== null){
-		var str = '';
-		var i=0;
-		while(node.nodeValue[i] === ' ' || node.nodeValue[i] === '\n' || node.nodeValue[i] === '\t')
-			i++;
-		for(;i<node.nodeValue.length;i++){
-			str += node.nodeValue[i];
-		}
-		node.nodeValue = str;
-	}
-	if (nodelist.length !== 0){
-		for (var n=0; n<nodelist.length; n++){
-			removeSpaces(nodelist[n]);
-		}
-	}
-}
-
-function childs(node, indent) {
-	var nodelist = node.childNodes;
-	var value = node.nodeValue;
-	if (value!==null){
-		if (value!==''){
-			for (var d=0; d<indent; d++){
-				msg += '\t';
-			}
-			msg += node+' ('+node.nodeValue;
-			msg += ')\n';
-		}
-	}
-	else{
-		for (var e=0; e<indent; e++){
-			msg += '\t';
-		}
-		msg += node+' ('+nodelist.length;
-		if (node.nodeType === 1){
-			var rect = node.getBoundingClientRect();
-			msg += ') - ('+(rect.left+window.pageXOffset)+','+(rect.top+window.pageYOffset)+','+rect.height+','+rect.width;
-		}
-		msg += ')\n';
-	}
-	if (nodelist.length !== 0){
-		for (var n=0; n<nodelist.length; n++){
-			childs(nodelist[n], indent+1);
-		}
-	}
-}
-
-function getText(node) {
-	var c = node.childNodes;
-	var i;
-	for (i = 0; i < c.length; i++) {
-	    if (c[i].nodeName === '#text' && c[i].nodeValue !== ''){
-		txt = txt + c[i].nodeValue + "$\n";
-	    } else if (c[i].nodeType===1 || c[i].nodeType===9){
-		    if (c[i].nodeName !== 'SCRIPT' && c[i].childNodes.length !== 0){
-			    getText(c[i]);
-		    }
-	    }
-	}
-  }
 
   
+
+  function reset()
+  {
+	alert("are you sure");
+	localStorage.clear();
+	document.location.reload();
+  }
+  var cur=window.location.href;
+  var links=document.getElementsByTagName("a");
+  if(localStorage.getItem(cur))
+	  {
+		var a=JSON.parse(localStorage.getItem(cur));
+		//console.log(JSON.stringify(a)+"**");
+		if (document.title!=a.title)
+		  a.title=document.title;
+		localStorage.setItem(cur,JSON.stringify(a)) ;
+		//console.log(a);
+		//console.log("already in local storage");
+	  }
+	  else
+	  {
+		var a={"count":1,"title":cur};
+		localStorage.setItem(cur,JSON.stringify(a)) ;
+		//console.log("1st"+a);
+	  }
+
+  // call update funtion on click event
+  for (i in links)
+  {
+	if (links[i].href)
+	{
+	  links[i].onclick=update;
+	} 
+  }
+  // reset();
+
+function update() {
+if(localStorage.getItem(this.href))
+{
+  var a=JSON.parse(localStorage.getItem(this.href));
+  console.log(JSON.stringify(a)+"**");
+  a.count=parseInt(a.count)+1;
+  localStorage.setItem(this.href,JSON.stringify(a));
+  console.log(a);
+}else{
+  var a={"count":1,"title":this.href};
+  localStorage.setItem(this.href,JSON.stringify(a)) ;
+  console.log("1st"+a);
+}
+console.log("hi"+localStorage.getItem(this.href) );
+}
+recommendation();
+function recommendation() {
+  console.log("Inside recom");
+  var pages = localStorage;
+  if (pages.length>0){
+  var arr=[];
+	  for (var i=0;i<pages.length;i++){
+		//console.log(i,pages.key(i),pages.getItem(pages.key(i)));
+			
+			  var p={};
+			  p['url']=pages.key(i);
+			  var a=JSON.parse(localStorage.getItem(pages.key(i)));
+			  p['id']=a.count;
+			  p['title']=a.title;
+			  console.log(p);
+			  arr.push(p);
+			
+		   
+	  }
+	  //console.log("array before sort"+[arr[0].url,arr[1].url,arr[2].url,arr[3].url,arr[4].url,arr[5].url]);
+	  arr.sort(function(a, b){
+		return parseInt(b.id) - parseInt(a.id);
+	});
+	  //console.log("array after sort"+[arr[0].url,arr[1].url,arr[2].url]);
+	  if(arr.length>=3)
+	  createBarInterface([arr[1].title,arr[1].url,arr[2].title,arr[2].url,arr[3].title,arr[3].url]);
+}
+}
+
+function createBarInterface(linkArr) {
+  if (linkArr.length>0)
+  {
+  var link, a, href, type;
+  var myDiv = document.createElement("DIV");
+  
+  //console.log(myDiv);
+  var note = document.createElement("DIV");
+  var rst = document.createElement("div");
+  var b=document.createElement("a");
+	var click=document.createTextNode("click to reset");
+	var oc=document.createAttribute("onclick");
+	b.appendChild(click);
+	b.setAttributeNode(oc);
+	oc.value="reset()";
+	rst.appendChild(b);
+  var h = document.createTextNode("Project By:");
+  note.appendChild(h);
+  var listn = document.createElement("UL");
+  var ln = document.createElement("LI");
+  var name = document.createTextNode("Parth Pathak");
+  ln.appendChild(name);
+  listn.appendChild(ln);
+  var ln2 = document.createElement("LI");
+  name = document.createTextNode("Kumud Gupta");
+  ln2.appendChild(name);
+  listn.appendChild(ln2);
+  note.appendChild(listn);
+  
+  note.style.position = 'absolute';
+  note.style.right = '0px';
+  note.style.width = '160px';
+  note.style.textAlign = 'left';
+  rst.style.position = 'absolute';
+  rst.style.marginLeft='10px';
+  rst.style.marginTop='5px';
+  myDiv.appendChild(rst);
+  myDiv.appendChild(note);
+		var para = document.createElement("P");
+		
+			  var t = document.createTextNode("Recommended links");
+			  para.appendChild(t);
+		myDiv.appendChild(para);
+			  var list = document.createElement("UL");
+			  type = document.createAttribute("type");
+			  type.value = 'none';
+			  list.setAttributeNode(type);
+			  for (var i=0; i<linkArr.length; i=i+2){
+					var l1 = document.createElement("LI");
+					a = document.createElement("A");
+					href = document.createAttribute("href");
+					href.value = linkArr[i+1];
+					a.setAttributeNode(href);
+					link = document.createTextNode(linkArr[i]);
+					a.appendChild(link);
+					l1.appendChild(a);
+					l1.style.cssFloat = 'left';
+					l1.style.padding = '20px';
+					list.appendChild(l1);
+			  }
+  myDiv.appendChild(list);
+  myDiv.style.position = 'fixed';
+  myDiv.style.bottom = '0px';
+  myDiv.style.width = '100%';
+  myDiv.style.background = 'linear-gradient(to bottom,rgba(0,0,0,0.8),rgba(0,0,0,1))';
+  myDiv.style.color = 'white';
+  myDiv.style.textAlign = 'center';
+  myDiv.style.zIndex = '1';
+  document.body.appendChild(myDiv);
+}
+}
