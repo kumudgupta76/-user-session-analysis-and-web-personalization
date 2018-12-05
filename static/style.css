@@ -5,10 +5,22 @@
     iframe {
       display: block;
       width: 100%;
-      height: 550px;
+      height: 520px;
     }
     .mail {
       color: white !important;
+    }
+    .site {
+        background-color: #3b4a80;
+        color: white;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    .sitename {
+        font-size: 14px;
+        color: yellow;
     }
     .context-dark, .bg-gray-dark, .bg-primary {
       color: rgba(255, 255, 255, 0.8);

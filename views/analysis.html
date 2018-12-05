@@ -20,22 +20,27 @@
   <p><b>A project that aims to deliver value to the users of the web, and its creators.</b></p> 
 </div>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link"><span class="date"></span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link">|</a>
+        </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#1">Favsites</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#2">Analysis Chart</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>    
+        <a class="nav-link" href="#3">Your Sort of Interest</a>
+      </li>
     </ul>
   </div>  
 </nav>
@@ -46,34 +51,36 @@
       <h2>About Us</h2>
       <h5>What we do</h5>
       <img src='/images/about.png' alt="About" style="width: 100%">
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3>Our Team</h3>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Parth Pathak</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Kumud Gupta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Raghav Arora</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Mudit Banga</a>
-        </li>
-      </ul>
-      <p><br><b>Project Mentor:</b><br>Mr. Vinay Agrawal<br>Astt. Professor<br>Department of CEA, GLA University</p>
+      <p>We analyse user data, through tracking user activity on the browser, and then provide better browsing experience to the user by giving personalised links and recommendations.</p>
+      <div id="map">
+          <iframe id="google_map" height="500px" width="100%" frameborder="0" scrolling="0" marginheight="0" marginweight="0" src="https://maps.google.co.uk?output=embed"></iframe>
+          </div>      
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">
-      <span class="date"></span>
-      <h2>YOUR ANALYSIS CHART</h2>
+      <h2 id="1">FAVSITES</h2>
+      <h5>Websites frequently visited by you:</h5><br>
+      <div class="container">
+        <div class="row">
+          <% for(var i in siteList){ %>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <a href="http://<%= siteList[i].name %>" target="_blank">
+              <p class="site">
+                <span class="sitename"><%= siteList[i].name %></span><br>
+                <%= siteList[i].count %> visit(s)
+              </p></a>
+            </div>
+            <% } %>
+        </div>
+      </div><br>
+      <h2 id="2">TIME ANALYSIS</h2>
       <h5>Time spent by you on different websites:</h5>
       <div id="timechart"><iframe src="/chart?userid=<%= userid %>&type=bar"></iframe></div>
       <br>
-      <h2>YOUR SORT OF INTEREST</h2>
-      <h5>Keywords that are found on sites you visit:</h5>
-      <div class="fakeimg"><iframe src="/chart?userid=<%= userid %>&type=pie"></iframe></div>
+      <h2 id="3">YOUR SORT OF INTEREST</h2>
+      <h5>Keywords you often lookup:</h5>
+      <!-- <div class="fakeimg"><iframe src="/chart?userid=<%= userid %>&type=pie"></iframe></div> -->
+      <br>
       <br><br>
     </div>
   </div>
@@ -83,8 +90,8 @@
   <div class="container">
     <div class="row row-30">
       <div class="col-md-4 col-xl-5">
-        <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/logo.png" alt="Logo" width="140" height="37"></a>
-          <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
+        <div class="pr-xl-4"><a class="brand" href="#"><img class="brand-logo-light" src="images/logo.png" alt="Logo" width="120"></a><br><br>
+          <p>We analyse user data, through tracking user activity on the browser, and then provide better browsing experience to the user by giving personalised links and recommendations.</p>
           <!-- Rights-->
           <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>GLA University</span><span>. </span><span>All Rights Reserved.</span></p>
         </div>
@@ -100,6 +107,7 @@
           <dd>+91 9690221181 <span>or</span> +91 9536248419
           </dd>
         </dl>
+        <p><br><b>Project Mentor:</b><br>Mr. Vinay Agrawal<br>Astt. Professor<br>Department of CEA, GLA University</p>
       </div>
       <div class="col-md-4 col-xl-3">
         <h5>Our Team</h5>
@@ -133,5 +141,14 @@
   for (var i=0;i<arr.length;i++){
     arr[i].innerHTML = str;
   }
+
+  navigator.geolocation.getCurrentPosition(c);
+  var c=function(pos){
+        var lat=pos.coords.latitude,
+            long=pos.coords.longitude,
+            coords=lat+','+long;
+        document.getElementById("google_map").setAttribute('src','https://maps.google.co.uk?q='+ coords +'&z=60&output=embed');
+    }
+
 </script>
 </html>

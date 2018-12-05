@@ -31,19 +31,20 @@ with open('file.csv') as csvfile:
 #for i in d:
     #print(i,d[i])
 s=sorted(d.items(), key=lambda i:(i[1][0],i[1][1],i[1][2],i[1][3]),reverse=True)
-l1,l2,l3=s[0],s[1],s[2]
-#print((l1[1][3]))
 finalList = []
-if len(l1[1])==5:
-    finalList.append({'title':l1[1][3],'url':hostname+':'+l1[1][4]+l1[0]})
-else:
-    finalList.append({'title':l1[1][3],'url':hostname+l1[0]})
-if len(l2[1])==5:
-    finalList.append({'title':l2[1][3],'url':hostname+':'+l2[1][4]+l2[0]})
-else:
-    finalList.append({'title':l2[1][3],'url':hostname+l2[0]})
-if len(l3[1])==5:
-    finalList.append({'title':l3[1][3],'url':hostname+':'+l3[1][4]+l3[0]})
-else:
-    finalList.append({'title':l3[1][3],'url':hostname+l3[0]})
+if len(s)>=3:
+    l1,l2,l3=s[0],s[1],s[2]
+#print((l1[1][3]))
+    if len(l1[1])==5:
+        finalList.append({'title':l1[1][3],'url':hostname+':'+l1[1][4]+l1[0]})
+    else:
+        finalList.append({'title':l1[1][3],'url':hostname+l1[0]})
+    if len(l2[1])==5:
+        finalList.append({'title':l2[1][3],'url':hostname+':'+l2[1][4]+l2[0]})
+    else:
+        finalList.append({'title':l2[1][3],'url':hostname+l2[0]})
+    if len(l3[1])==5:
+        finalList.append({'title':l3[1][3],'url':hostname+':'+l3[1][4]+l3[0]})
+    else:
+        finalList.append({'title':l3[1][3],'url':hostname+l3[0]})
 print(json.dumps(finalList))

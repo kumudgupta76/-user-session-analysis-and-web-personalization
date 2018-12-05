@@ -19,19 +19,19 @@ app.use(express.static(__dirname + '/static'));
 
 app.get('/user-session-analysis', function(req,res){
 	var userid = req.query.userid;
-	var process = spawn('python',["-u","./favsites.py",req.query.userid]);
+	var process = spawn('python',["./favsites.py",req.query.userid]);
 	
 	var obj;
 	process.stdout.on('data', function(data) {
 		obj = JSON.parse(data);
-    });
-    process.stderr.on('data', function(data){
+		console.log(obj);
+		res.render('analysis.html',{
+			userid : userid,
+			siteList : obj
+		});
+      });
+      process.stderr.on('data', function(data){
 		console.log("Error: " + data);
-	});
-	
-	res.render('analysis.html',{
-		userid : userid,
-		siteList : obj
 	});
 });
 
