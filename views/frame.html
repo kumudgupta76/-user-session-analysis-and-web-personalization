@@ -1,0 +1,31 @@
+<html>
+      <head>
+            <style>
+                  #loader {
+                        font-size:20px;
+                        color: red;
+                        padding: 20px;
+                  }
+            </style>
+      </head>
+      <body>
+            <div id="loader">
+                  Could not load chart ...
+            </div>
+            <div id="chart"></div>
+            <script>
+      var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+                var str = this.responseText;
+                document.write(str);
+		} else {
+                  document.getElementById("loader").innerHTML = 'Loading plot ...';
+            }
+	};
+		xmlhttp.open("GET","/getchart?userid=<%= userid %>&type=<%= type %>",true);
+		// xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+		xmlhttp.send();
+            </script>
+      </body>
+</html>

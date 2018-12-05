@@ -22,7 +22,7 @@ var session = {
 };
 chrome.storage.sync.get('userid', function(items) {
 	var userid = items.userid;
-	console.log(userid);
+	// console.log(userid);
 	session.userid = userid;
 });
 var interval = window.setInterval(function () {
@@ -45,25 +45,10 @@ window.onbeforeunload = function(){
 	xmlhttp.send('details='+JSON.stringify(session));
 	return 'Are you sure you want to leave?';
 };
-function recommendationBar() {
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-		    var arr = JSON.parse(this.responseText);
-			//createBarInterface(arr);
-			//console.log(arr);
-		}
-	};
-	chrome.storage.sync.get('userid',function(items){
-		var userid = items.userid;
-		var hostname = window.location.hostname;
-		xmlhttp.open("GET","http://localhost:3000/getlinks?userid="+userid+"&hostname="+hostname,true);
-		xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
-		xmlhttp.send();
-	});
-}
 
-
+window.onload = function(){
+	recommendation();
+};
   
 
   function reset()
@@ -99,31 +84,48 @@ function recommendationBar() {
 	  links[i].onclick=update;
 	} 
   }
-  // reset();
+  //  reset();
 
 function update() {
 if(localStorage.getItem(this.href))
 {
   var a=JSON.parse(localStorage.getItem(this.href));
-  console.log(JSON.stringify(a)+"**");
+  // console.log(JSON.stringify(a)+"**");
   a.count=parseInt(a.count)+1;
   localStorage.setItem(this.href,JSON.stringify(a));
-  console.log(a);
+  // console.log(a);
 }else{
   var a={"count":1,"title":this.href};
   localStorage.setItem(this.href,JSON.stringify(a)) ;
-  console.log("1st"+a);
+  // console.log("1st"+a);
 }
-console.log("hi"+localStorage.getItem(this.href) );
+// console.log("hi"+localStorage.getItem(this.href) );
 }
-recommendation();
 function recommendation() {
-  console.log("Inside recom");
+	var arrb = [];
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		    arrb = JSON.parse(this.responseText);
+			//createBarInterface(arr);
+			console.log(arrb);
+		}
+	};
+	chrome.storage.sync.get('userid',function(items){
+		var userid = items.userid;
+		var hostname = window.location.hostname;
+		// console.log(userid);
+		// console.log(hostname);
+		xmlhttp.open("GET","http://localhost:3000/getlinks?userid="+userid+"&hostname="+hostname,true);
+		xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+		xmlhttp.send();
+	});
+	// console.log("Inside recom");
   var pages = localStorage;
   if (pages.length>0){
   var arr=[];
 	  for (var i=0;i<pages.length;i++){
-		//console.log(i,pages.key(i),pages.getItem(pages.key(i)));
+		console.log(i,pages.key(i),pages.getItem(pages.key(i)));
 			
 			  var p={};
 			  p['url']=pages.key(i);
@@ -140,12 +142,15 @@ function recommendation() {
 		return parseInt(b.id) - parseInt(a.id);
 	});
 	  //console.log("array after sort"+[arr[0].url,arr[1].url,arr[2].url]);
-	  if(arr.length>=3)
-	  createBarInterface([arr[1].title,arr[1].url,arr[2].title,arr[2].url,arr[3].title,arr[3].url]);
+	  if(arr.length>=3){
+		createBarInterface([arr[1].title,arr[1].url,arr[2].title,arr[2].url,arr[3].title,arr[3].url],arrb);
+		}
+		else
+		createBarInterface([],arrb);
 }
 }
 
-function createBarInterface(linkArr) {
+function createBarInterface(linkArr,linkArrB) {
   if (linkArr.length>0)
   {
   var link, a, href, type;
@@ -161,23 +166,6 @@ function createBarInterface(linkArr) {
 	b.setAttributeNode(oc);
 	oc.value="reset()";
 	rst.appendChild(b);
-  var h = document.createTextNode("Project By:");
-  note.appendChild(h);
-  var listn = document.createElement("UL");
-  var ln = document.createElement("LI");
-  var name = document.createTextNode("Parth Pathak");
-  ln.appendChild(name);
-  listn.appendChild(ln);
-  var ln2 = document.createElement("LI");
-  name = document.createTextNode("Kumud Gupta");
-  ln2.appendChild(name);
-  listn.appendChild(ln2);
-  note.appendChild(listn);
-  
-  note.style.position = 'absolute';
-  note.style.right = '0px';
-  note.style.width = '160px';
-  note.style.textAlign = 'left';
   rst.style.position = 'absolute';
   rst.style.marginLeft='10px';
   rst.style.marginTop='5px';
@@ -199,6 +187,19 @@ function createBarInterface(linkArr) {
 					href.value = linkArr[i+1];
 					a.setAttributeNode(href);
 					link = document.createTextNode(linkArr[i]);
+					a.appendChild(link);
+					l1.appendChild(a);
+					l1.style.cssFloat = 'left';
+					l1.style.padding = '20px';
+					list.appendChild(l1);
+				}
+				for (var i=0; i<linkArrB.length; i=i++){
+					var l1 = document.createElement("LI");
+					a = document.createElement("A");
+					href = document.createAttribute("href");
+					href.value = linkArr[i].url;
+					a.setAttributeNode(href);
+					link = document.createTextNode(linkArr[i].title);
 					a.appendChild(link);
 					l1.appendChild(a);
 					l1.style.cssFloat = 'left';

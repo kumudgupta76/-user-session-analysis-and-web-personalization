@@ -3,7 +3,7 @@ import sys
 import mpld3
 import numpy as np
 import matplotlib.pyplot as plt
-userid = '385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf'
+userid = sys.argv[1]
 site = list()
 actual = list()
 total = list()
@@ -19,7 +19,7 @@ with open('file.csv') as csvfile:
                                 actual.append(int(row[8]))
                                 total.append(int(row[7]))
 fig_size = plt.rcParams["figure.figsize"]
-fig_size[0] *= 3.5
+fig_size[0] *= 3
 plt.rcParams["figure.figsize"] = fig_size
 fig = plt.subplots()[0]
 x = np.arange(0, len(site)*6, 6)
@@ -29,3 +29,4 @@ plt.xticks(x, site, rotation='90')
 plt.ylabel('Actual activity time (sec)')
 plt.legend(['Total Time', 'Actual Activity Time'])
 print(mpld3.fig_to_html(fig))
+sys.stdout.flush()

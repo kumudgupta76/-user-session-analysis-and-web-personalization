@@ -69,11 +69,12 @@
       <span class="date"></span>
       <h2>YOUR ANALYSIS CHART</h2>
       <h5>Time spent by you on different websites:</h5>
-      <div id="timechart"><iframe src="/getchart?userid=<%= userid %>">Loading Plot...</iframe></div>
+      <div id="timechart"><iframe src="/chart?userid=<%= userid %>&type=bar"></iframe></div>
       <br>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description</h5>
-      <div class="fakeimg"><br><br></div>
+      <h2>YOUR SORT OF INTEREST</h2>
+      <h5>Keywords that are found on sites you visit:</h5>
+      <div class="fakeimg"><iframe src="/chart?userid=<%= userid %>&type=pie"></iframe></div>
+      <br><br>
     </div>
   </div>
 </div>

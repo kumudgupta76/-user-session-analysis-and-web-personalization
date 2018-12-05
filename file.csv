@@ -1,100 +1,39 @@
-timestamp,userid,hostname,port,path,query,title,total_time,actual_time
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/fgtauth,?66fbf2870687b96b,Firewall Authentication,27,6
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/,,Firewall Authentication,25,4
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/,,Firewall Authentication,28,5
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/keepalive,?07000a080f0a1325,Firewall Authentication Keepalive Window,201,11
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/keepalive,?07000a080f0a1325,Firewall Authentication Keepalive Window,603,35
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,69,18
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,240,11
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/fgtauth,?700468218f7195a3,Firewall Authentication,16,11
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,240,11
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,stackoverflow.com,,/questions/4529586/render-basic-html-view,,javascript - Render basic HTML view? - Stack Overflow,2,2
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,121,1
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,279,6
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,126,8
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,34,2
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.google.com,,/,,Google,11,0
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,gla.ac.in,,/,,"B.Tech. Colleges in UP, M.Tech Technical University in UP, Private Colleges in Uttar Pradesh",39,7
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,gla.ac.in,,/,,"B.Tech. Colleges in UP, M.Tech Technical University in UP, Private Colleges in Uttar Pradesh",53,5
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,blog.zoominfo.com,,/personalized-marketing-quotes/,,20 Important Quotes about Personalization in Marketing | ZoomInfo Blog,343,52
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.w3schools.com,,/cssref/css3_pr_box-shadow.asp,,CSS box-shadow property,869,16
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,bootsnipp.com,,/tags/footer,,Bootstrap Footer Examples,29,7
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,getbootstrap.com,,/,,"Bootstrap · The most popular HTML, CSS, and JS library in the world.",13,9
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,getbootstrap.com,,/docs/4.1/getting-started/introduction/,,Introduction · Bootstrap,5,5
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,getbootstrap.com,,/docs/4.1/layout/overview/,,Overview · Bootstrap,13,8
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,getbootstrap.com,,/docs/4.1/layout/utilities-for-layout/,,Utilities for layout · Bootstrap,5,4
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,getbootstrap.com,,/docs/4.1/content/reboot/,,Reboot · Bootstrap,3,3
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,getbootstrap.com,,/docs/4.1/components/alerts/,,Alerts · Bootstrap,15,12
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,getbootstrap.com,,/docs/4.1/utilities/borders/,,Borders · Bootstrap,7,5
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,startbootstrap.com,,/snippets/,,Free Bootstrap Snippets for Bootstrap 4 - Start Bootstrap,14,3
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,startbootstrap.com,,/bootstrap-resources,,Bootstrap Resources and Plugins List - Start Bootstrap,9,1
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,bootsnipp.com,,/tags/footer,,Bootstrap Footer Examples,17,7
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,bootsnipp.com,,/snippets/featured/bootstrap-4-footer-design,,Bootstrap Snippet Bootstrap 4 Footer Design using HTML CSS Bootstrap,2389,25
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.w3schools.com,,/js/js_date_methods.asp,,JavaScript Date Methods,3312,101
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,promozonic.projectorclub.in,,/,,Promozonic,96,18
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,matplotlib.org,,/gallery/ticks_and_spines/ticklabels_rotation.html,,Rotating custom tick labels — Matplotlib 3.0.2 documentation,100,51
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,stackoverflow.com,,/questions/10998621/rotate-axis-text-in-python-matplotlib/23009503,,Rotate axis text in python matplotlib - Stack Overflow,237,49
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,stackoverflow.com,,/questions/13515471/matplotlib-how-to-prevent-x-axis-labels-from-overlapping-each-other,,python - matplotlib: how to prevent x-axis labels from overlapping each other - Stack Overflow,111,46
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/fgtauth,?519e7d90bfda60f5,Firewall Authentication,1,1
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/keepalive,?0406060f080a132a,Firewall Authentication Keepalive Window,786,6
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,cloud.google.com,,/appengine/docs/flexible/nodejs/serving-static-files,,Serving Static Files  |  App Engine flexible environment for Node.js docs  |  Google Cloud,33,7
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,fontawesome.com,,/icons/google-plus,?style=brands,Font Awesome,79,5
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/fgtauth,?5639873cf6ee3a56,Firewall Authentication,2,2
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,172.16.10.20,1000,/keepalive,?0b0a00080c021024,Firewall Authentication Keepalive Window,758,6
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.hackerrank.com,,/,,HackerRank,0,0
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.hackerrank.com,,/dashboard,,Dashboard | HackerRank,44,22
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,www.hackerrank.com,,/inbox/thread/249696,,Programming Problems and Competitions :: HackerRank,26,14
-1.54E+12,385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf,gitlab.com,,/,,Projects · Dashboard · GitLab,4,3
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.google.com,,/,,Google,21,2
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,glauniversity.in,,/EduwareHome/Home,,GLAMS - Bee Smart,34,4
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,glauniversity.in,,/StudentHome,,GLA Management System,18,10
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,glauniversity.in,,/MySubjectPanel,?Key=DTB'27?6,GLA Management System,31,7
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,glauniversity.in,,/MySubjectPanel,?Key=DTB'2774,GLA Management System,77,6
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,glauniversity.in,,/EduwareHome/Home,,GLAMS - Bee Smart,246,14
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.google.com,,/,,Google,12,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_dictionaries.asp,,Python Dictionaries,27,16
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_json.asp,,Python JSON,9,1
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_lambda.asp,,Python Lambda,10,6
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_arrays.asp,,Python Arrays,12,5
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_for_loops.asp,,Python For Loops,28,4
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_while_loops.asp,,Python While Loops,19,1
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_for_loops.asp,,Python For Loops,96,4
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_for_loops.asp,,Python For Loops,96,7
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_functions.asp,,Python Functions,89,2
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_functions.asp,,Python Functions,12,1
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_functions.asp,,Python Functions,117,3
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_functions.asp,,Python Functions,406,8
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_functions.asp,,Python Functions,8,2
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_functions.asp,,Python Functions,6,1
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_for_loops.asp,,Python For Loops,5,2
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,glauniversity.in,,/MySubjectPanel,?Key=DTB'2774,GLA Management System,2178,7
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,mail.google.com,,/mail/u/0/,,GLA University Mail,18,2
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,web.whatsapp.com,,/,,WhatsApp Web,235,18
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,web.whatsapp.com,,/,,WhatsApp Web,37,9
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,glauniversity.in,,/Eduwarehome/Home,,GLAMS - Bee Smart,585,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.w3schools.com,,/python/python_while_loops.asp,,Python While Loops,680,26
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.google.com,,/,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.google.com,,/,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.google.com,,/search,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.dumpcollection.com,,/,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,duckduckgo.com,,/,,,60,60
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.dumpscollection.net,,/,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,duckduckgo.com,,/,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,duckduckgo.com,,/,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.dumpcollection.com,,/testengine/demo.html,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.dumpcollection.com,,/page_software.html,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.dumpcollection.com,,/1z0-071_braindumps.html,,,60,60
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,duckduckgo.com,,/,,,180,120
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,stackoverflow.com,,/questions/10775351/combining-node-js-and-python,,,180,120
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,duckduckgo.com,,/,,,60,60
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,duckduckgo.com,,/,,,60,60
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,stackoverflow.com,,/questions/30689526/how-to-call-python-script-from-nodejs,,,0,0
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,stackoverflow.com,,/questions/10775351/combining-node-js-and-python,,,300,60
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.youtube.com,,/,,,240,180
-1.54E+12,4011a1c7c60946a88a8b6a6f1c7a47a82fa7dd7bae5c321af42dffddc6ef,www.youtube.com,,/,,,240,180
-1543569929962,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/keepalive","?080009090f04112f","Firewall Authentication Keepalive Window",609,35
-1543570547919,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/keepalive","?080009090f04112f","Firewall Authentication Keepalive Window",761,8
-1543571312610,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/keepalive","?080009090f04112f","Firewall Authentication Keepalive Window",302,12
-1543586299012,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","web.whatsapp.com","","/","","WhatsApp Web",31,5
-1543581828622,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","codeyarns.com","","/2014/10/27/how-to-change-size-of-matplotlib-plot/","","How to change size of Matplotlib plot – Code Yarns 👨‍💻",4982,144
-1543590412946,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","web.whatsapp.com","","/","","WhatsApp Web",762,185
+timestamp,userid,hostname,protocol,path,query,title,total_time,actual_time
+1543747918641,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","gitlab.com","","/","","Projects · Dashboard · GitLab",10,1
+1543748150734,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","gitlab.com","","/parth_pathak/user-session-analysis-and-web-personalization","","Parth Pathak / User Session Analysis and Web Personalization · GitLab",405,5
+1543748561746,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","gitlab.com","","/parth_pathak/user-session-analysis-and-web-personalization/project_members","","Members · Parth Pathak / User Session Analysis and Web Personalization · GitLab",73,15
+1543748642725,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","gitlab.com","","/parth_pathak/user-session-analysis-and-web-personalization/project_members","","Members · Parth Pathak / User Session Analysis and Web Personalization · GitLab",4,3
+1543748653527,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","gitlab.com","","/MuditBanga","","Mudit Banga · GitLab",148,14
+1543753446757,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","mail.google.com","","/mail/u/1/","","GLA University Mail",1,0
+1543903645360,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/keepalive","?060f0a0d0600132f","Firewall Authentication Keepalive Window",864,5
+1543936439190,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","web.whatsapp.com","","/","","WhatsApp Web",79,41
+1543996705095,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/fgtauth","?525e596810cae7a2","Firewall Authentication",421,4
+1543997150389,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/fgtauth","?535f577d77a51f9a","Firewall Authentication",21,6
+1543997469877,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",80,3
+1543997553189,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",19,5
+1543997577315,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",192,6
+1543997773995,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",89,7
+1543997176150,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/keepalive","?0e000f030b021127","Firewall Authentication Keepalive Window",755,5
+1543997873596,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",264,4
+1543998144137,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",83,3
+1543998230193,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",229,10
+1543998465557,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","www.google.com","","/","","Google",76,5
+1543998586809,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","gitlab.com","","/","","Projects · Dashboard · GitLab",123,5
+1543997937761,"385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf","172.16.10.20","1000","/keepalive","?0e000f030b021127","Firewall Authentication Keepalive Window",781,3
+1543998716049,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",578,7
+1543998728253,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/keepalive","?0e000f030b021127","Firewall Authentication Keepalive Window",874,1
+1543999300057,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",886,8
+1544000195356,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",193,2
+1543999620734,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/keepalive","?0e000f030b021127","Firewall Authentication Keepalive Window",786,1
+1544000412460,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",160,1
+1544000590666,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",79,0
+1544000697535,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",0,0
+1544000715811,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",0,0
+1544000725082,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",0,0
+1544000754566,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",18,3
+1544000784333,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/parth_pathak/user-session-analysis-and-web-personalization","","Parth Pathak / User Session Analysis and Web Personalization · GitLab",10,4
+1544000803138,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",3,3
+1544000816426,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/parth_pathak/my_practice","","Parth Pathak / my_practice · GitLab",6,6
+1544000834697,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/dashboard/groups","","Groups · Dashboard · GitLab",3,3
+1544000847140,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/explore/groups","","Groups · Explore · GitLab",15,8
+1544000870282,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/dashboard/projects","","Projects · Dashboard · GitLab",0,0
