@@ -16,14 +16,14 @@ chrome.storage.sync.get('userid', function(items) {
 	session.userid = userid;
 });
 var interval = window.setInterval(function () {
-	session.total_time += 1;
+	session.total_time += 60;
 	if (mevent){
-		session.actual_time += 1;
+		session.actual_time += 60;
 		mevent=0;
 	}
 	// console.log(session.userid);
 	// console.log(session.actual_time);
-}, 1000);
+}, 60000);
 document.onmousemove = function(){
 	mevent=1;
 };

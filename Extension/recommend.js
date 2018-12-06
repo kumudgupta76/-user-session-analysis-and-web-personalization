@@ -73,6 +73,7 @@ t2.value="document.getElementById('usawpToggle').style.display='none';document.g
 					l1.style.cssFloat = 'left';
 					l1.style.padding = '20px';
 					l1.style.borderLeft = '1px solid #aaa';
+					l1.style.textShadow = '0px 0px 5px';
 					list.appendChild(l1);
 			  }
   myDiv.appendChild(list);

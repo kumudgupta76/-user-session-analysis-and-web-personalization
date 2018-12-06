@@ -1,88 +1,117 @@
-window.onload = function(){
-	recommendation();
-};
-
 function reset()
 {
     alert("Are you sure?");
     localStorage.clear();
     document.location.reload();
 }
-
-var cur = window.location.href;
-if(localStorage.getItem(cur))
-      {
-          var a = JSON.parse(localStorage.getItem(cur));
-          //console.log(JSON.stringify(a)+"**");
-          if (document.title!=a.title)
-            a.title=document.title;
-          localStorage.setItem(cur,JSON.stringify(a)) ;
-          //console.log(a);
-          //console.log("already in local storage");
-      }
-      else
-      {
-          var a={"count":1,"title":cur};
-          localStorage.setItem(cur,JSON.stringify(a)) ;
-          //console.log("1st"+a);
-      }
-
-// call update funtion on click event
-var links = document.getElementsByTagName("a");
-for (var i in links)
-{
-    if (links[i].href)
-    {
-      links[i].onclick = update;
-    } 
-}
-//  reset();
-
-function update() {
-      if(localStorage.getItem(this.href)) {
-            var a = JSON.parse(localStorage.getItem(this.href));
-            // console.log(JSON.stringify(a)+"**");
-            a.count = parseInt(a.count)+1;
-            localStorage.setItem(this.href,JSON.stringify(a));
-            // console.log(a);
-      } else {
-            var a={"count":1,"title":this.href};
-            localStorage.setItem(this.href,JSON.stringify(a)) ;
-            // console.log("1st"+a);
-      }
-      // console.log("hi"+localStorage.getItem(this.href) );
+if (typeof(Storage) !== "undefined") {
+	var obj = {
+		title: document.title,
+		url: window.location.href
+	};
+	if (!localStorage.pages || !localStorage.adjMatrix){
+		initializeGraph(obj);
+	} else {
+		var pages = JSON.parse(localStorage.pages);
+		var adjMatrix = JSON.parse(localStorage.adjMatrix);
+		var index1 = find(pages, window.location.href);
+		if (index1 === -1){
+			addNode(pages, adjMatrix, obj);
+		}
+		localStorage.pages = JSON.stringify(pages);
+		localStorage.adjMatrix = JSON.stringify(adjMatrix);
+	}
+	recommendationBar();
+	if (document.addEventListener)
+		document.addEventListener('click', callback, false);
+  	else
+		document.attachEvent('onclick', callback);
+} else {
+	alert('No Web Storage Support.\nPersonalisation may not work.');
 }
 
-function recommendation() {
-          // console.log("Inside recom");
-      var pages = localStorage;
-      if (pages.length>0){
-            var arr=[];
-            for (var i=0;i<pages.length;i++){
-                  console.log(i,pages.key(i),pages.getItem(pages.key(i)));
-                
-                  var p={};
-                  p['url']=pages.key(i);
-                  var a = JSON.parse(localStorage.getItem(pages.key(i)));
-                  p['id']=a.count;
-                  p['title']=a.title;
-                  console.log(p);
-                  arr.push(p);
-                
-             
-            }
-            //console.log("array before sort"+[arr[0].url,arr[1].url,arr[2].url,arr[3].url,arr[4].url,arr[5].url]);
-            arr.sort(function(a, b){
-                  return parseInt(b.id) - parseInt(a.id);
-            });
-            //console.log("array after sort"+[arr[0].url,arr[1].url,arr[2].url]);
-            if(arr.length>=3){
-                  createBarInterface([arr[1].title,arr[1].url,arr[2].title,arr[2].url,arr[3].title,arr[3].url]);
-            } else createBarInterface([]);
-      }
+function find(arr, link) {
+	var flag = -1;
+	for (var i=0; i<arr.length; i++){
+		if (arr[i].url === link) {
+			flag = i;
+			break;
+		}
+	}
+	return flag;
 }
 
-function createBarInterface(linkArr) {
+function initializeGraph(obj) {
+	var pages = [];
+	pages.push(obj);
+	var adjMatrix = [[0]];
+	localStorage.pages = JSON.stringify(pages);
+	localStorage.adjMatrix = JSON.stringify(adjMatrix);
+}
+
+function addNode(pages, adjMatrix, obj) {
+	var newArr = [];
+	for(var i=0; i<pages.length; i++){
+		adjMatrix[i].push(0);
+		newArr.push(0);
+	}
+	newArr.push(0);
+	adjMatrix.push(newArr);
+	pages.push(obj);
+}
+
+function callback(e) {
+	if (e.target.tagName === 'A') {
+		var pages = JSON.parse(localStorage.pages);
+		var adjMatrix = JSON.parse(localStorage.adjMatrix);
+		var index = find(pages, e.target.href);
+		if (index === -1){
+			var obj = {
+				title: e.target.innerText,
+				url: e.target.href
+			};
+			addNode(pages, adjMatrix, obj);
+			index = find(pages, e.target.href);
+		}
+		var index1 = find(pages, window.location.href);
+		adjMatrix[index1][index] += 1;
+		localStorage.pages = JSON.stringify(pages);
+		localStorage.adjMatrix = JSON.stringify(adjMatrix);
+	}
+	else return;
+}
+
+function recommendationBar() {
+	var pages = JSON.parse(localStorage.pages);
+	var adjMatrix = JSON.parse(localStorage.adjMatrix);
+	console.log(pages);
+	console.log(adjMatrix);
+	var maxsColumn=0, maxsRow=0, col=0, row=0;
+	for (var i=0; i<pages.length; i++){
+		var sum1=0, sum2=0;
+		for (var j=0; j<pages.length; j++){
+			sum1 += adjMatrix[j][i];
+			sum2 += adjMatrix[i][j];
+		}
+		if (sum1 >= maxsColumn){
+			maxsColumn = sum1;
+			col = i;
+		}
+		if (sum2 >= maxsRow){
+			maxsRow = sum2;
+			row = i;
+		}
+	}
+	var max = 0;
+	var index1 = find(pages, window.location.href);
+	for (var l=1; l<pages.length; l++){
+		if (adjMatrix[index1][l] >= adjMatrix[index1][max]) max = l;
+	}
+	var arr = [pages[col], pages[max], pages[row]];
+	createBarInterface2(arr);
+}
+
+function createBarInterface2(linkArr) {
       if (linkArr.length>0)
       {
           var link, a, href, type;
@@ -99,7 +128,7 @@ function createBarInterface(linkArr) {
                 div2.style.display = 'block';
                 div2.style.position = 'fixed';
                 div2.style.bottom = '0px';
-                div2.style.right = '150px';
+                div2.style.right = '200px';
                 div2.style.backgroundColor = 'indigo';
                 div2.style.zIndex = '2147483647';
                 div2.style.padding = '10px';
@@ -120,11 +149,11 @@ function createBarInterface(linkArr) {
                         type = document.createAttribute("type");
                         type.value = 'none';
                         list.setAttributeNode(type);
-                            for (var i=0; i<linkArr.length; i=i+2){
+                            for (var i=0; i<linkArr.length; i++){
                                   var l1 = document.createElement("LI");
                                   a = document.createElement("A");
                                   href = document.createAttribute("href");
-                                  href.value = linkArr[i+1];
+                                  href.value = linkArr[i];
                                   a.setAttributeNode(href);
                                   link = document.createTextNode(linkArr[i]);
                                   a.appendChild(link);

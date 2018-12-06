@@ -80,3 +80,29 @@ timestamp,userid,hostname,protocol,path,query,title,total_time,actual_time
 1544042586093,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",194,8
 1544042787168,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",536,48
 1544048896372,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",832,32
+1544071692947,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/keepalive","?0c0d09000e0d1a26","Firewall Authentication Keepalive Window",5,4
+1544071738370,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/fgtauth","?601c4d278ff91749","Firewall Authentication",2,2
+1544071836553,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",1321,45
+1544073167223,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",1733,12
+1544074929805,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/keepalive","?020809000d0d152a","Firewall Authentication Keepalive Window",0,0
+1544074949758,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/fgtauth","?651d40e38afcc9a3","Firewall Authentication",2,2
+1544074980052,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",109,22
+1544075113906,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",48,22
+1544075174479,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",72,12
+1544075258313,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",61,15
+1544075332301,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",261,8
+1544075623241,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",61,22
+1544075701707,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",382,16
+1544076103382,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",227,3
+1544076346562,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",244,1
+1544076616790,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",62,19
+1544077122871,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","mail.google.com","","/mail/u/1/","","GLA University Mail",8,0
+1544077122871,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","mail.google.com","","/mail/u/1/","","GLA University Mail",8,0
+1544077146589,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/keepalive","?0000080b090e1625","Firewall Authentication Keepalive Window",13,10
+1544077185156,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","172.16.10.20","1000","/fgtauth","?65185879a68f3352","Firewall Authentication",4,3
+1544077199490,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","mail.google.com","","/mail/u/1/","","GLA University Mail",105,23
+1544071714720,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","www.google.com","","/","","Google",5646,0
+1544077311269,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","mail.google.com","","/mail/u/1/","","GLA University Mail",379,54
+1544076691946,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",845,36
+1544086560217,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",60,5
+1544086627094,"89ca70ce3a71a45e2de79d477e0443a7a49ac5cc1ac135c79964db0e4a694fe","gitlab.com","","/","","Projects · Dashboard · GitLab",657,28

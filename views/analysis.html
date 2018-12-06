@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload="zone();">
   <div class="text-light d-block w-100 px-5 py-2" style="position:absolute;">
     <img src="/images/logo.png" alt="Logo"> USAWP
   </div>
@@ -38,9 +39,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#2">Analysis Chart</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#3">Your Sort of Interest</a>
-      </li>
+      </li> -->
     </ul>
   </div>  
 </nav>
@@ -79,7 +80,7 @@
       <br>
       <h2 id="3">YOUR SORT OF INTEREST</h2>
       <h5>Keywords you often lookup:</h5>
-      <!-- <div class="fakeimg"><iframe src="/chart?userid=<%= userid %>&type=pie"></iframe></div> -->
+      <div class="fakeimg"><iframe src="/chart?userid=<%= userid %>&type=pie"></iframe></div>
       <br>
       <br><br>
     </div>
@@ -141,9 +142,11 @@
   for (var i=0;i<arr.length;i++){
     arr[i].innerHTML = str;
   }
-
-  navigator.geolocation.getCurrentPosition(c);
-  var c=function(pos){
+function zone(){
+ navigator.geolocation.getCurrentPosition(c)
+     return false;
+}
+    var c=function(pos){
         var lat=pos.coords.latitude,
             long=pos.coords.longitude,
             coords=lat+','+long;
