@@ -149,13 +149,14 @@ function createBarInterface2(linkArr) {
                         type = document.createAttribute("type");
                         type.value = 'none';
                         list.setAttributeNode(type);
+                        console.log(linkArr);
                             for (var i=0; i<linkArr.length; i++){
                                   var l1 = document.createElement("LI");
                                   a = document.createElement("A");
                                   href = document.createAttribute("href");
-                                  href.value = linkArr[i];
+                                  href.value = linkArr[i].url;
                                   a.setAttributeNode(href);
-                                  link = document.createTextNode(linkArr[i]);
+                                  link = document.createTextNode(linkArr[i].title);
                                   a.appendChild(link);
                                   l1.appendChild(a);
                                   l1.style.cssFloat = 'left';

@@ -9,7 +9,7 @@ from string import punctuation
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import matplotlib.pyplot as plt
-userid =sys.argv[1]
+userid = '385b2c636949e7034945e26d868c47b1a1275c71d1df951eda2e39d354e8bf'
 #main_c=Counter()
 def myKey(x):
     return x[1]
@@ -23,11 +23,12 @@ for url in urls:
     r = requests.post(url,allow_redirects=5)
     stop_words=set(stopwords.words('english'))
     soup = BeautifulSoup(r.content,features="html.parser")
+    soup.encode("utf-8")
     text = (''.join(s.findAll(text=True)) for s in soup.findAll('p'))
     c = Counter((x.rstrip(punctuation).upper() for y in text for x in y.split() if x not in stop_words if x not in "!#$%&\'()*+,-./->:;<=>?@[\\]^_`{|}~"))
     words=c.most_common(20)
     #main_c.update(words)
-    print(words)
+    #print(words)
     for i in words:
           final_list.append(i)
 #print([x for x in c if c.get(x) >= 2])
