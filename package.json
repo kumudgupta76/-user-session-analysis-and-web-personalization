@@ -1,0 +1,26 @@
+{
+  "name": "user-session-analysis-and-web-personalization",
+  "version": "1.0.0",
+  "description": "user session analysis and web personalozation extension",
+  "main": "main.js",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "json2csv": "^5.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/parth_pathak/user-session-analysis-and-web-personalization.git"
+  },
+  "author": "Kumud Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/parth_pathak/user-session-analysis-and-web-personalization/issues"
+  },
+  "homepage": "https://gitlab.com/parth_pathak/user-session-analysis-and-web-personalization#readme"
+}

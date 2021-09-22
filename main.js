@@ -31,6 +31,7 @@ app.get('/user-session-analysis', function(req,res){
 		});
       });
       process.stderr.on('data', function(data){
+      	res.render('error.html');
 		console.log("Error: " + data);
 	});
 });
